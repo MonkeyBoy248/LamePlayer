@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Resources/Icons/favicon.svg" type="image/x-icon">
+    <script defer src="./Scripts/theme.js"></script>
+    <script defer src="./Scripts/tracks.js"></script>
+    <script defer src="./Scripts/sidebar.js"></script>
+    <script defer src="./Scripts/player.js"></script>
+    <title>Lame Player</title>
+</head>
+<body class="dark">
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <span class="burger-button">
+                    <span></span>
+                </span>
+                <div class="logo__box">
+                    <h1>LamePlayer</h1>
+                    <span class="img__box">
+                        <svg stroke="currentColor" fill="#0FA750" stroke-width="0" role="img" viewBox="0 0 24 24" height="3.5em" width="3.5em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M.33 11.39s.54-.09.77.14c.22.23.07.71-.22.72-.3.01-.57.06-.77-.14a.443.443 0 01.22-.72zm5.88 3.26c-.05.01-.11-.02-.16-.06-.39-.53-.53-2.37-.71-2.48-.18-.11-.85 1.02-2.19.9-.55-.05-1.12-.41-1.45-.66.03-.41.03-1.39.86-1.07.51.19 1.37.72 2.13-.23.84-1.05 1.3-.74 1.57-.51.28.22.1 1.41.51 1.08.41-.33 2.08-2.39 2.08-2.39s1.29-1.29 1.49.06c.2 1.36 1.04 2.87 1.27 2.82.22-.04 2.82-5.27 3.19-5.61.37-.34 1.63-.29 1.57.57-.06.87-.19 6.25-.19 6.25s-.15 1.52.09.71c.1-.34.21-.64.34-1 .64-2.03 1.73-5.51 2.28-7.3.12-.42.23-.79.32-1.07v-.01c.03-.13.06-.23.09-.32.05-.15.08-.26.09-.28.02-.07.09-.12.19-.16.09-.06.2-.06.31-.06.31-.03.69.01 1.04.11.11 0 .22.03.32.11 0 0 .01 0 .02.01.03.02.06.05.1.1h.01c.01.02.03.05.05.07.19.29.31.81.19 1.74-.3 2.31-.53 7.07-.53 7.07s-.05.23.44-.77c.01-.04.03-.07.05-.1.03-.02.06-.04.1-.08.29-.36 1.09-.56 1.65-.56.23.03.43.09.54.16.22.33.09 1.55.09 1.55-.46.04-1.34.29-1.65.33-.31.05-.78 2.05-1.44 1.85-.66-.21-2.13-1.12-2.13-1.24 0-.11.12-1.44.15-1.79v-.07-.01c.03-.27.01-.39-.12-.12-.11.23-.58 1.72-1.11 3.34-.05.14-1.05 3.13-1.18 3.49-.15.42-.29.75-.38.91-.13.19-.32.3-.58.23-.65-.2-1.46-1.08-1.47-1.3-.02-1.24.06-7.9-.24-7.35-.32.57-2.73 4.52-2.73 4.52-.04.01-.07.01-.11.01-.17-.02-.44-.07-.51-.23 0-.01-.01-.02-.01-.03-.01-.01-.01-.02-.02-.04-.03-.11-.04-.23-.07-.33-.11-.36-.28-.88-.47-1.4-.27-.9-.56-1.82-.61-1.92-.09-.2-.22-.12-.35 0-.54.45-1.68 2.45-2.72 2.56z"></path></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="text-api-test">
+            <p class=text-p></p>
+        </div>
+    </header>
+    <main class="intro">
+            <div class="intro__inner">
+            <aside class="sidebar">
+                <nav class="sidebar__inner">
+                    <h2>Моя музыка</h2>
+                    <ul class="sidebar__items">
+                        <li class="sidebar__item sidebar__item_main current-page">
+                            <span class="icon__box">
+                                <svg stroke="currentColor" fill="#FFF" stroke-width="0" role="img" viewBox="0 0 24 24" height="3.5em" width="3.5em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M.33 11.39s.54-.09.77.14c.22.23.07.71-.22.72-.3.01-.57.06-.77-.14a.443.443 0 01.22-.72zm5.88 3.26c-.05.01-.11-.02-.16-.06-.39-.53-.53-2.37-.71-2.48-.18-.11-.85 1.02-2.19.9-.55-.05-1.12-.41-1.45-.66.03-.41.03-1.39.86-1.07.51.19 1.37.72 2.13-.23.84-1.05 1.3-.74 1.57-.51.28.22.1 1.41.51 1.08.41-.33 2.08-2.39 2.08-2.39s1.29-1.29 1.49.06c.2 1.36 1.04 2.87 1.27 2.82.22-.04 2.82-5.27 3.19-5.61.37-.34 1.63-.29 1.57.57-.06.87-.19 6.25-.19 6.25s-.15 1.52.09.71c.1-.34.21-.64.34-1 .64-2.03 1.73-5.51 2.28-7.3.12-.42.23-.79.32-1.07v-.01c.03-.13.06-.23.09-.32.05-.15.08-.26.09-.28.02-.07.09-.12.19-.16.09-.06.2-.06.31-.06.31-.03.69.01 1.04.11.11 0 .22.03.32.11 0 0 .01 0 .02.01.03.02.06.05.1.1h.01c.01.02.03.05.05.07.19.29.31.81.19 1.74-.3 2.31-.53 7.07-.53 7.07s-.05.23.44-.77c.01-.04.03-.07.05-.1.03-.02.06-.04.1-.08.29-.36 1.09-.56 1.65-.56.23.03.43.09.54.16.22.33.09 1.55.09 1.55-.46.04-1.34.29-1.65.33-.31.05-.78 2.05-1.44 1.85-.66-.21-2.13-1.12-2.13-1.24 0-.11.12-1.44.15-1.79v-.07-.01c.03-.27.01-.39-.12-.12-.11.23-.58 1.72-1.11 3.34-.05.14-1.05 3.13-1.18 3.49-.15.42-.29.75-.38.91-.13.19-.32.3-.58.23-.65-.2-1.46-1.08-1.47-1.3-.02-1.24.06-7.9-.24-7.35-.32.57-2.73 4.52-2.73 4.52-.04.01-.07.01-.11.01-.17-.02-.44-.07-.51-.23 0-.01-.01-.02-.01-.03-.01-.01-.01-.02-.02-.04-.03-.11-.04-.23-.07-.33-.11-.36-.28-.88-.47-1.4-.27-.9-.56-1.82-.61-1.92-.09-.2-.22-.12-.35 0-.54.45-1.68 2.45-2.72 2.56z"></path></svg>
+                            </span>
+                            <p>Главная</p>
+                        </li>
+                        <li class="sidebar__item sidebar__item_tracks">
+                            <span class="icon__box"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"></path><path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z" clip-rule="evenodd"></path><path d="M5 2.905a1 1 0 01.9-.995l8-.8a1 1 0 011.1.995V3L5 4V2.905z"></path></svg></span>
+                            <p>Треки</p>
+                        </li>
+                        <li class="sidebar__item sidebar__item_playlists">
+                            <span class="icon__box">
+                                <span class="icon__box"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M2 18h10v2H2v-2zm0-7h14v2H2v-2zm0-7h20v2H2V4zm17 11.17V9h5v2h-3v7a3 3 0 1 1-2-2.83z"></path></g></svg></span>
+                            </span>
+                            <p>Плейлисты</p>
+                        </li>
+                        <li class="sidebar__item sidebar__item_albums">
+                            <span class="icon__box">
+                                <span class="icon__box"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path></svg></span>
+                            </span>
+                            <p>Альбомы</p>
+                        </li>
+                        <li class="sidebar__item sidebar__item_settings">
+                            <span class="icon__box"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M413.967 276.8c1.06-6.235 1.06-13.518 1.06-20.8s-1.06-13.518-1.06-20.8l44.667-34.318c4.26-3.118 5.319-8.317 2.13-13.518L418.215 115.6c-2.129-4.164-8.507-6.235-12.767-4.164l-53.186 20.801c-10.638-8.318-23.394-15.601-36.16-20.801l-7.448-55.117c-1.06-4.154-5.319-8.318-10.638-8.318h-85.098c-5.318 0-9.577 4.164-10.637 8.318l-8.508 55.117c-12.767 5.2-24.464 12.482-36.171 20.801l-53.186-20.801c-5.319-2.071-10.638 0-12.767 4.164L49.1 187.365c-2.119 4.153-1.061 10.399 2.129 13.518L96.97 235.2c0 7.282-1.06 13.518-1.06 20.8s1.06 13.518 1.06 20.8l-44.668 34.318c-4.26 3.118-5.318 8.317-2.13 13.518L92.721 396.4c2.13 4.164 8.508 6.235 12.767 4.164l53.187-20.801c10.637 8.318 23.394 15.601 36.16 20.801l8.508 55.117c1.069 5.2 5.318 8.318 10.637 8.318h85.098c5.319 0 9.578-4.164 10.638-8.318l8.518-55.117c12.757-5.2 24.464-12.482 36.16-20.801l53.187 20.801c5.318 2.071 10.637 0 12.767-4.164l42.549-71.765c2.129-4.153 1.06-10.399-2.13-13.518l-46.8-34.317zm-158.499 52c-41.489 0-74.46-32.235-74.46-72.8s32.971-72.8 74.46-72.8 74.461 32.235 74.461 72.8-32.972 72.8-74.461 72.8z"></path></svg></span>
+                            <p>Настройки</p>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+        <div class="main-content">
+            <div class="main-content__inner">
+                <h2>Рекомендации</h2>
+                <div class="recommendations open">
+                    <div class="slider__container">
+                        <div class="slider__inner">
+                            <div class="slider__item">
+                                <img class="item-img" src="" alt="">
+                                <div class="item__controls">
+                                    <span class="item__play active"><svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="3.5em" width="3.5em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm144.1 454.9L437.7 677.8a8.02 8.02 0 0 1-12.7-6.5V353.7a8 8 0 0 1 12.7-6.5L656.1 506a7.9 7.9 0 0 1 0 12.9z"></path></svg></span>
+                                    <span class="item__pause"><svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="3.5em" width="3.5em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-80 600c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304zm224 0c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304z"></path></svg></span>
+                                    <audio class="item__audio" src=""></audio>
+                                    <div class="item__info__container">
+                                        <div class="info">
+                                            <p class="info__band"></p>
+                                            <p class="info__name"></p>
+                                            <p class="info__duration"></p>
+                                        </div>
+                                        <span class="add-button">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider__item">
+                                <img class="item-img" src="" alt="">
+                                <div class="item__controls">
+                                    <span class="item__play active"><svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="3.5em" width="3.5em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm144.1 454.9L437.7 677.8a8.02 8.02 0 0 1-12.7-6.5V353.7a8 8 0 0 1 12.7-6.5L656.1 506a7.9 7.9 0 0 1 0 12.9z"></path></svg></span>
+                                    <span class="item__pause"><svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="3.5em" width="3.5em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-80 600c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304zm224 0c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304z"></path></svg></span>
+                                    <audio class="item__audio" src=""></audio>                                    <div class="item__info__container">
+                                        <div class="info">
+                                            <p class="info__band"></p>
+                                            <p class="info__name"></p>
+                                            <p class="info__duration"></p>
+                                        </div>
+                                        <span class="add-button">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider__item">
+                                <img class="item-img" src="" alt="">
+                                <div class="item__controls">
+                                    <span class="item__play active"><svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="3.5em" width="3.5em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm144.1 454.9L437.7 677.8a8.02 8.02 0 0 1-12.7-6.5V353.7a8 8 0 0 1 12.7-6.5L656.1 506a7.9 7.9 0 0 1 0 12.9z"></path></svg></span>
+                                    <span class="item__pause"><svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="3.5em" width="3.5em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-80 600c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304zm224 0c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304z"></path></svg></span>
+                                    <audio class="item__audio" src=""></audio>
+                                    <div class="item__info__container">
+                                        <div class="info">
+                                            <p class="info__band"></p>
+                                            <p class="info__name"></p>
+                                            <p class="info__duration"></p>
+                                        </div>
+                                        <span class="add-button">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="track-list__container hide">
+                    <ul class="list-of-tracks">
+                    </ul>
+                </div>
+                <div class="playlists__container hide">
+                    <div class="playlists__inner">
+                        <ul class="playlists__list">
+                            <li class="playlists__item playlists__item_add-button">
+                                <div class="playlists__item-inner">
+                                    <button type="button">
+                                        <svg stroke="currentColor" fill="#b3b3b3" stroke-width="0" t="1551322312294" viewBox="0 0 1024 1024" version="1.1" pId="10297" height="5em" width="5em" xmlns="http://www.w3.org/2000/svg"><defs></defs><path d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z" pId="10298"></path><path d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z" pId="10299"></path></svg>
+                                    </button>
+                                </div>
+                            </li>
+                            <li class="playlists__item playlists__item_favorite" name='Избранное' playlist-id='0'>
+                                <figure class="playlists__item-cover playlists__item-cover_favorites">
+                                    <img src="Resources/Icons/favorites-fallback.png" alt="" srcset="" class="playlists__favorite-icon">
+                                </figure>
+                                <p class="playlists__name">Избранное</p>
+                                <p class="playlists__tracks-amount"></p>
+                            </li>
+                        </ul>
+                        <hr class="playlists__divider hide">
+                        <div class="playlists__current-playlist-container hide">
+                            <h3 class="playlists__current-playlist-name"></h3>
+                            <ul class="playlists__current-playlist">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings__container hide">
+                    <div class="settings__inner">
+                        <div class="app-theme__container">
+                            <h4>Цвет темы</h4>
+                            <ul class="theme__options">
+                                <li>
+                                    <input type="checkbox" name="theme" id="theme__light" currentThemeColor="">
+                                    <label for="theme__light">Светлая тема</label>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             </div>
+    </main>
+    <div class="player__container">
+        <div class="player__inner">
+            <div class="timer">
+                <span class="current-time"></span>
+                <span class="duration"></span>
+            </div>
+            <div class="progress-area">
+                <span class="progress-bar"></span>
+            </div>
+            <audio id="main-audio" src="Resources/Tracks/A Perfect Circle - The Outsider.mp3"></audio>
+            <div class="controls__container">
+                <div class="controls__body">
+                    <span class="controls__item controls__item_prev-track-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M16 7L9 12 16 17zM9 12L9 7 7 7 7 17 9 17z"></path></svg></span>
+                    <span class="controls__item controls__item_play-button active"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="2.2em" width="2.2em" xmlns="http://www.w3.org/2000/svg"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"></path></svg></span>
+                    <span class="controls__item controls__item_pause-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="2.2em" width="2.2em" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 3H6v10H4.5V3zm7 0v10H10V3h1.5z"></path></svg></span>
+                    <span class="controls__item controls__item_next-track-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 24 24" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M16 7L9 12 16 17zM9 12L9 7 7 7 7 17 9 17z"></path></svg></span>
+                    <span class="controls__item controls__item_repeat-track-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 512 512" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M149.3 152h213.3v62.4l85.3-83.2L362.7 48v62.4h-256v124.8h42.7V152zm213.4 208H149.3v-62.4L64 380.8l85.3 83.2v-62.4h256V276.8h-42.7V360z"></path></svg></span>
+                    <span class="controls__item controls__item_shuffle-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M17,17h-1.559l-9.7-10.673C5.552,6.119,5.283,6,5.001,6H2v2h2.559l4.09,4.5l-4.09,4.501H2v2h3.001 c0.282,0,0.551-0.119,0.74-0.327L10,13.987l4.259,4.686C14.448,18.881,14.717,19,14.999,19H17v3l5-4l-5-4V17z"></path><path d="M15.441,8H17v3l5-3.938L17,3v3h-2.001c-0.282,0-0.551,0.119-0.74,0.327l-3.368,3.707l1.48,1.346L15.441,8z"></path></svg></span>
+                </div>
+                <div class="track-info">
+                    <div class="album-image-box">
+                        <img src="Resources/Icons/favicon.svg">
+                    </div>
+                    <div class="name__container">
+                        <p class="track__name"></p>
+                        <p class="band__name"></p>
+                    </div>
+                </div>
+                <span class="favorite-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"></path></svg></span>
+            </div>
+            <div class="tools__container">
+                <span class="tools__item tools__item_options-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" clip-rule="evenodd"></path></svg></span>
+                <span class="tools__item tools__item_volume-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8.717 3.55A.5.5 0 019 4v8a.5.5 0 01-.812.39L5.825 10.5H3.5A.5.5 0 013 10V6a.5.5 0 01.5-.5h2.325l2.363-1.89a.5.5 0 01.529-.06z" clip-rule="evenodd"></path></svg></span>
+                <span class="tools__item tools__item_queue-button"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"></path></svg></span>
+                <div class="tools__item volume__container">
+                <output class="volume__output">100</output>
+                <input type="range" class='volume__slider' id="volume__slider" max="100" value="50">
+               </div>
+            </div>
+        </div>
+        <div class="about-track__container hide">
+           <button class="about-track__item about-track__item_like">
+               <span class="about-icon"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 1024 1024" height="0.7em" width="0.7em" xmlns="http://www.w3.org/2000/svg"><path d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z"></path></svg></span>
+               <p>Нравится</p>
+           </button>
+           <button class="about-track__item about-track__item_add-to-playlist">
+                <span class="about-icon"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="0.7em" width="0.7em" xmlns="http://www.w3.org/2000/svg"><path stroke-width="2" d="M12,22 L12,2 M2,12 L22,12"></path></svg></span>
+                <p>Добавить в плейлист</p>
+           </button>
+           <button class="about-track__item about-track__item_show-lyrics">
+                <span class="about-icon"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 16 16" height="0.7em" width="0.7em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 1h8a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V3a2 2 0 012-2zm0 1a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V3a1 1 0 00-1-1H4z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M4.5 10.5A.5.5 0 015 10h3a.5.5 0 010 1H5a.5.5 0 01-.5-.5zm0-2A.5.5 0 015 8h6a.5.5 0 010 1H5a.5.5 0 01-.5-.5zm0-2A.5.5 0 015 6h6a.5.5 0 010 1H5a.5.5 0 01-.5-.5zm0-2A.5.5 0 015 4h6a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path></svg></span>
+                <p>Показать текст песни</p>
+            </button>
+            <button class="about-track__item about-track__item_dislike">
+                <span class="about-icon"><svg stroke="currentColor" fill="#fff" stroke-width="0" viewBox="0 0 24 24" height="0.7em" width="0.7em" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0H24V24H0z"></path><path d="M2.808 1.393l18.384 18.385-1.414 1.414-3.747-3.747L12 21.485 3.52 12.993c-2.04-2.284-2.028-5.753.034-8.023L1.393 2.808l1.415-1.415zm2.172 10.23L12 18.654l2.617-2.623-9.645-9.645c-1.294 1.497-1.3 3.735.008 5.237zm15.263-6.866c2.262 2.268 2.34 5.88.236 8.236l-1.635 1.636-1.414-1.414 1.59-1.592c1.374-1.576 1.299-3.958-.193-5.453-1.5-1.502-3.92-1.563-5.49-.153l-1.335 1.198-1.336-1.197c-.35-.314-.741-.555-1.155-.723l-2.25-2.25c1.668-.206 3.407.289 4.74 1.484 2.349-2.109 5.979-2.039 8.242.228z"></path></g></svg></span>
+                <p>Не нравится</p>
+            </button>
+        </div>
+    </div>
+    <div class="lyrics-pop-up__container">
+        <div class="lyrics-pop-up__body">
+            <button class="lyrics-pop-up__close-button">
+                <svg stroke="currentColor" fill="white" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"></path></svg>
+            </button>
+            <header class="lyrics-pop-up__header">
+                <img src="" alt="" class="lyrics-pop-up__album-icon">
+                <div class="lyrics-pop-up__track-info">
+                    <p class="lyrics-pop-up__track-name"></p>
+                <p class="lyrics-pop-up__band-name"></p>
+                </div>
+            </header>
+            <div class="lyrics-pop-up__lyrics-container">
+                <pre class="lyrics-pop-up__lyrics"></pre>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
