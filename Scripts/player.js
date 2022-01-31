@@ -109,13 +109,15 @@ function repeat () {
     playMusic(playButton, pauseButton, mainAudio);
 }
 
-playButton.addEventListener('click', () =>{ //Регистрация события "click" на кнопке воспроизведения трека и запуск трека
-   playMusic(playButton, pauseButton, mainAudio);
-   styleLiPlayButton('<svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-80 600c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304zm224 0c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304z"></path></svg>', listOfTracks);
-   styleLiPlayButton('<svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-80 600c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304zm224 0c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304z"></path></svg>', currentPlaylist);
+playButton.addEventListener('click', () =>{
+    currentNow();
+    playMusic(playButton, pauseButton, mainAudio);
+    styleLiPlayButton('<svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-80 600c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304zm224 0c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304z"></path></svg>', listOfTracks);
+    styleLiPlayButton('<svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-80 600c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304zm224 0c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V360c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v304z"></path></svg>', currentPlaylist);
 })
 
-pauseButton.addEventListener('click', () =>{ //Регистрация события "click" на кнопке остановки трека и остановка трека
+pauseButton.addEventListener('click', () =>{
+    currentNow();
     pauseMusic(playButton, pauseButton, mainAudio); //Остановка текущего трека
     styleLiPlayButton('<svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm144.1 454.9L437.7 677.8a8.02 8.02 0 0 1-12.7-6.5V353.7a8 8 0 0 1 12.7-6.5L656.1 506a7.9 7.9 0 0 1 0 12.9z"></path></svg>', listOfTracks);
     styleLiPlayButton('<svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm144.1 454.9L437.7 677.8a8.02 8.02 0 0 1-12.7-6.5V353.7a8 8 0 0 1 12.7-6.5L656.1 506a7.9 7.9 0 0 1 0 12.9z"></path></svg>', currentPlaylist);
@@ -301,38 +303,48 @@ function getValuesArray (keyName, searchArray) {
 }
 
 function createTrackListTemplate(array, ul, container){
-    ul.innerHTML = '';
     const songNames = getValuesArray("name", allTracks);
-    for(let i = 0; i < array.length; i++){ //Перебор всех треков в массиве песен
-        let liTag = `<li li-index="${i}" track-id="${songNames.indexOf(array[i]["name"])}" class="list-of-tracks__item">
-        <span class="item__number">${i + 1}</span>
-        <div class="item__main-info">
-            <span class="item__img">
-            <span class="li__play"><svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm144.1 454.9L437.7 677.8a8.02 8.02 0 0 1-12.7-6.5V353.7a8 8 0 0 1 12.7-6.5L656.1 506a7.9 7.9 0 0 1 0 12.9z"></path></svg></span>
-            <img src="./Resources/Images/${array[i].img}.jpg" alt="">
-            </span>
-            <span class="item__name">${array[i].name}</span>
-        </div>
-        <div class='item__side-info'>
-            <span class="item__artist">${array[i].artist}</span>
-            <span class="item__album">${array[i].album}</span>
-            <audio class="song-${i}" src="./Resources/Tracks/${array[i].src}.mp3"></audio>
-        <div class='item__end-column'>
-            <span id="song-${i}" class="item__duration">0:00</span>
-            <span class="item__options"><svg stroke="currentColor" fill="#currentColor" stroke-width="0" viewBox="0 0 16 16" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" clip-rule="evenodd"></path></svg></span>
-        </div>
-        </div>
-        </li>`; //Создание шаблона элемента списка
-    ul.insertAdjacentHTML("beforeend", liTag); //Вставка элемента в список
+    const trackTemplate = document.querySelector("#track-template");
+    ul.innerHTML = '';
 
-    let liAudioDuration = container.querySelector(`#song-${i}`); //Получение DOM-элемента длительности трека в списке треков
-    let liAudioTag = container.querySelector(`.song-${i}`); //Получение тега <audio> в списке треков
+    for(let i = 0; i < array.length; i++){
+        const track = trackTemplate.content.cloneNode(true).children[0];
 
-    liAudioTag.addEventListener('loadeddata', () => { //Регистрация события "loadeddata" на главном теге <audio> и получение данных о длительности трека
-        let minutes = Math.floor((liAudioTag.duration / 60)); //Вычисление минут
-        let sec = Math.floor(liAudioTag.duration % 60); //Вычисление секунд
-        liAudioDuration.innerHTML = `${minutes}:${pad(sec)}` //В DOM-элемент, отображающий длительность трека, передается значение длительности трека в формате "минуты:секунды"
-    })
+        track.setAttribute("li-index", `${i}`);
+        track.setAttribute("track-id", `${songNames.indexOf(array[i]["name"])}`);
+
+        const trackNumber = track.querySelector(".item__number");
+        trackNumber.textContent = `${i + 1}`;
+
+        const trackImg = track.querySelector(".item__cover");
+        trackImg.setAttribute("src", `./Resources/Images/${array[i].img}.jpg`);
+
+        const trackName = track.querySelector(".item__name");
+        const trackArtist = track.querySelector(".item__artist");
+        const trackAlbum = track.querySelector(".item__album");
+
+        trackName.textContent = `${array[i].name}`;
+        trackArtist.textContent = `${array[i].artist}`;
+        trackAlbum.textContent = `${array[i].album}`;
+
+        const trackAudio = track.querySelector("audio");
+        trackAudio.setAttribute("class", `song-${i}`);
+        trackAudio.setAttribute("src", `./Resources/Tracks/${array[i].src}.mp3`);
+
+        const trackDuration = track.querySelector(".item__duration");
+        trackDuration.setAttribute("id", `song-${i}`);
+
+
+        ul.append(track); //Вставка элемента в список
+
+        let liAudioDuration = track.querySelector(`#song-${i}`);
+        let liAudioTag = track.querySelector(`.song-${i}`);
+
+        liAudioTag.addEventListener('loadeddata', () => { //Регистрация события "loadeddata" на главном теге <audio> и получение данных о длительности трека
+            let minutes = Math.floor((liAudioTag.duration / 60)); //Вычисление минут
+            let sec = Math.floor(liAudioTag.duration % 60); //Вычисление секунд
+            liAudioDuration.innerHTML = `${minutes}:${pad(sec)}` //В DOM-элемент, отображающий длительность трека, передается значение длительности трека в формате "минуты:секунды"
+        })
     }
 }
 createTrackListTemplate(allTracks, listOfTracks, trackListContainer);
@@ -413,11 +425,11 @@ const sidebarItems = document.querySelector(".sidebar__items");
 const recommendations = document.querySelector(".recommendations");
 
 
-function ShowCurrentPage(elem, header) { //Отображение текущей страницы
-    mainContentInnerHeader.innerHTML = header; //Изменение значения заголовка содержимого главной страницы
-    for(let i of mainContentInner.children){ //Перебор всех дочерних элементов блока с осовным содержимым страницы
-        if(i.classList.contains("open")){
-            i.classList.replace("open", "hide"); //Дочерний элемент скрывается
+function ShowCurrentPage(elem, header) {
+    mainContentInnerHeader.innerHTML = header;
+    for(let page of mainContentInner.children){
+        if(page.classList.contains("open")){
+            page.classList.replace("open", "hide");
         }
     }
     elem.classList.replace("hide", "open");
@@ -551,9 +563,7 @@ function setPlaylistsTracksAmount(){
     }
 }
 
-
 const playlistsContainer = document.querySelector(".playlists__container");
-
 
 const currentPlaylistContainer = document.querySelector('.playlists__current-playlist-container');
 const currentPlaylistName = document.querySelector('.playlists__current-playlist-name');
@@ -602,4 +612,26 @@ currentPlaylist.addEventListener('click', (e) => {
     let targetElement = e.target.closest("li");
     clicked(targetElement);
 });
+
+const searchInput = document.querySelector(".track-list__search-input");
+
+searchInput.addEventListener('input', (e) => {
+    const value = e.target.value.toLowerCase();
+    [...listOfTracks.children].forEach((item) => {
+        const isVisible = item.querySelector(".item__name").innerText.toLowerCase().includes(value) ||
+            item.querySelector(".item__artist").innerText.toLowerCase().includes(value) ||
+            item.querySelector(".item__album").innerText.toLowerCase().includes(value);
+
+        item.classList.toggle("hide", !isVisible);
+    })
+
+    // const filteredTracks= allTracks.filter((item) => {
+    //     return (item.name.toLowerCase().includes(value) ||
+    //         item.artist.toLowerCase().includes(value) ||
+    //         item.album.toLowerCase().includes(value));
+    // });
+
+    //createTrackListTemplate(filteredTracks, listOfTracks, trackListContainer);
+    //playingNow();
+})
 
