@@ -15,7 +15,7 @@ button {
   --green: #0fa750;
   --white: #fff;
   --grey1: rgba(219, 219, 219, 0.8);
-  --grey2: rgb(117, 117, 117);
+  --grey2: rgb(99, 99, 99);
   --black: #000;
   --black1: rgba(29, 29, 29, 0.8);
   --black2: rgb(37, 37, 37);
@@ -89,6 +89,16 @@ h6,
 p {
   margin: 0;
   padding: 0;
+}
+._hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 .header {
   position: absolute;
@@ -671,6 +681,35 @@ input[type="range"]:active::-webkit-slider-thumb {
 .track-list__container.hide{
     display: none;
 }
+.track-list__search-form {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  width: 350px;
+  border-radius: 20px;
+  padding: 10px 10px;
+  border: 2px solid var(--grey2);
+  margin-bottom: 30px;
+}
+.track-list__search-icon-wrapper {
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.track-list__search-icon {
+  fill: var(--black);
+}
+.track-list__search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+::placeholder {
+  color: var(--grey2);
+  font-family: Montserrat;
+  font-size: 14px;
+}
 .list-of-tracks__item {
   min-width: 100%;
   list-style: none;
@@ -681,6 +720,9 @@ input[type="range"]:active::-webkit-slider-thumb {
   background: var(--bg);
   font-size: 14px;
   font-weight: 500;
+}
+.list-of-tracks__item.hide {
+  display: none;
 }
 .list-of-tracks__item:hover {
   background: var(--list-of-tracks);
@@ -922,7 +964,7 @@ ul .playing {
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
   gap: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   list-style: none;
 }
 figure{

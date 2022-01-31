@@ -132,4 +132,19 @@ const allTracks = [
         img: 'Lateralus',
         src: 'TOOL - Schism'
     },
+    {
+        name: 'Parabola',
+        artist: 'TOOL',
+        album: 'Lateralus',
+        img: 'Lateralus',
+        src: 'TOOl - Parabola'
+    },
+    {
+        name: 'The Pot',
+        artist: 'TOOL',
+        album: '10, 000 Days',
+        img: '10, 000 Days',
+        src: 'TOOl - The Pot'
+    },
+
 ]

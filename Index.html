@@ -123,6 +123,13 @@
                     </div>
                 </div>
                 <div class="track-list__container hide">
+                    <form class="track-list__search-form">
+                        <figure class="track-list__search-icon-wrapper">
+                            <svg class="track-list__search-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"></path></svg>
+                        </figure>
+                        <label for="track-list__input" class="track-list__label _hidden">Поиск</label>
+                        <input type="text" id="track-list__input" class="track-list__search-input" placeholder="Трек, альбом или исполнитель">
+                    </form>
                     <ul class="list-of-tracks">
                     </ul>
                 </div>
@@ -247,5 +254,26 @@
             </div>
         </div>
     </div>
+    <template id="track-template">
+        <li li-index track-id class="list-of-tracks__item">
+        <span class="item__number"></span>
+        <div class="item__main-info">
+                <span class="item__img">
+                <span class="li__play"><svg stroke="currentColor" fill="#0FA750" stroke-width="0" viewBox="0 0 1024 1024" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm144.1 454.9L437.7 677.8a8.02 8.02 0 0 1-12.7-6.5V353.7a8 8 0 0 1 12.7-6.5L656.1 506a7.9 7.9 0 0 1 0 12.9z"></path></svg></span>
+                <img class="item__cover" src="" alt="">
+                </span>
+            <span class="item__name"></span>
+        </div>
+        <div class='item__side-info'>
+            <span class="item__artist"></span>
+            <span class="item__album"></span>
+            <audio class="" src=""></audio>
+            <div class='item__end-column'>
+                <span id="" class="item__duration">0:00</span>
+                <span class="item__options"><svg stroke="currentColor" fill="#currentColor" stroke-width="0" viewBox="0 0 16 16" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" clip-rule="evenodd"></path></svg></span>
+            </div>
+        </div>
+        </li>
+    </template>
 </body>
 </html>
